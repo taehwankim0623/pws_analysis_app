@@ -543,48 +543,12 @@ with col_t2:
 
 st.divider()
 
-# ── 📋 EMR Copy 버튼 (페이지 맨 아래) ────────────────────────────────────────
+# ── 📋 EMR Copy (페이지 맨 아래) ──────────────────────────────────────────────
 copy_text = build_copy_text(responses_arr, subscale_scores, cluster)
-copy_text_escaped = copy_text.replace("\\", "\\\\").replace("`", "\\`")
 
 st.subheader("📋 EMR Copy")
-st.markdown(
-    f"""
-    <div style="
-        background: #F0F4F8;
-        border: 1px solid #CBD5E0;
-        border-radius: 8px;
-        padding: 12px 16px;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    ">
-        <code style="
-            flex: 1;
-            font-size: 13px;
-            word-break: break-all;
-            color: #2D3748;
-            background: transparent;
-        ">{copy_text}</code>
-        <button onclick="
-            navigator.clipboard.writeText(`{copy_text_escaped}`);
-            this.textContent='✅ Copied!';
-            setTimeout(()=>this.textContent='📋 Copy', 1500);
-        " style="
-            background: #4C72B0;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 8px 20px;
-            font-size: 14px;
-            cursor: pointer;
-            white-space: nowrap;
-        ">📋 Copy</button>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+
+st.code(copy_text, language=None)
 
 st.divider()
 st.caption("한방소아과 연구팀 전용 | 버전 1.0")
