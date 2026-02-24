@@ -15,7 +15,7 @@ from scipy import stats
 import matplotlib.font_manager as fm
 
 # ── 폰트 설정 (Streamlit Cloud 호환) ──────────────────────────────────────────
-font_path = "NanumGothic.ttf" 
+font_path = "NanumGothicCoding.ttf" 
 
 fontprop = fm.FontProperties(fname=font_path)
 KOREAN_FONT = fontprop.get_name()
