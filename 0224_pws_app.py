@@ -1,5 +1,5 @@
 """
-소아 허약 검사 - AI analysis v0.7
+소아 허약 검사 - AI analysis v1.0
 실행: streamlit run pws_factor_app.py
 필요 파일: factor_loadings.csv / corr_matrix.csv / scaler_params.csv / best_svm.pkl
 """
@@ -350,7 +350,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.caption("연구팀 내부용 v0.7")
+st.caption("한방소아과 연구팀 전용 v1.0")
 st.divider()
 
 if not st.session_state.get("analyzed", False):
@@ -579,4 +579,4 @@ st.markdown(
 )
 
 st.divider()
-st.caption("연구팀 내부용 | 버전 0.7")
+st.caption("한방소아과 연구팀 전용 | 버전 1.0")
