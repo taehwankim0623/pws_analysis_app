@@ -17,6 +17,8 @@ import matplotlib.font_manager as fm
 # ── 폰트 설정 (Streamlit Cloud 호환) ──────────────────────────────────────────
 font_path = "NanumGothicCoding.ttf" 
 
+fm.fontManager.addfont(font_path)
+
 fontprop = fm.FontProperties(fname=font_path)
 KOREAN_FONT = fontprop.get_name()
 
