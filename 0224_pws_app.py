@@ -12,11 +12,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 from scipy import stats
+import matplotlib.font_manager as fm
 
-# ── 폰트 설정 ─────────────────────────────────────────────────────────────────
+# ── 폰트 설정 (Streamlit Cloud 호환) ──────────────────────────────────────────
+font_path = "NanumGothic.ttf" 
+
+fontprop = fm.FontProperties(fname=font_path)
+KOREAN_FONT = fontprop.get_name()
+
+matplotlib.rcParams['font.family'] = KOREAN_FONT
 matplotlib.rcParams['axes.unicode_minus'] = False
 
-KOREAN_FONT = 'AppleGothic'
 ENGLISH_FONT = 'DejaVu Sans'
 
 # ══════════════════════════════════════════════════════════════════════════════
