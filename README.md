@@ -1,2 +1,40 @@
-# pws_analysis_app
-analysis of PWS (Pediatric Weakness Scale) with AI
+# 🩺 소아 허약 검사(PWS) AI 분석 대시보드 (AI Analysis Dashboard for PWS)
+
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+
+본 프로젝트는 **대한한방소아과학회지(2025)**에 게재된 논문을 기반으로 구축된 **웹 기반 임상 시각화 및 자동 예측 툴**입니다. 
+복잡한 수기 계산 없이 소아 허약 검사(Pediatric Weakness Scale, PWS) 응답만으로 환아의 허약 패턴을 즉시 분석하고 시각화하여, 한의사의 진료를 보조하고 맞춤형 치료 전략 수립을 돕습니다.
+
+## 📑 기반 논문 (Reference)
+이 애플리케이션의 모든 분석 알고리즘과 군집화 로직은 아래의 연구 결과를 충실히 반영하여 제작되었습니다.
+> **소아 허약 검사를 활용한 허약아 패턴 분석 및 머신러닝 기반 예측 모델 개발**
+> *김태환, 윤선우, 최서연, 방미란, 한주희, 장규태, 이진용, 이선행*
+> *대한한방소아과학회지 제39권 제2호 (2025년 5월), 38-53*
+
+## ✨ 주요 기능 (Key Features)
+
+1. **7대 잠재 요인 자동 산출 및 시각화**
+   - 30문항의 응답 데이터를 바탕으로 논문에서 규명한 7가지 내재 요인(호흡기 건강 및 면역력, 전반적 신체 기능 저하, 안구 건강, 심리·정서적 취약성, 소화기 기능 취약성, 성장·영양 상태, 수면·신경계 예민성)의 점수를 자동 산출합니다.
+   - 결과를 직관적인 **레이더 차트(Radar Chart)**로 시각화하여 환아의 취약 요소를 한눈에 파악할 수 있습니다.
+
+2. **머신러닝(SVM) 기반 10대 허약아 군집 자동 분류**
+   - 연구를 통해 검증된 **비선형 Support Vector Machine (nonlinear SVM)** 모델을 적용하였습니다 (분류 정확도: 89.0%).
+   - 환아를 10가지 고유 패턴(건강아, 고도 복합 허약아, 간폐 허약아, 정서불안형 심계허약아, 중등도 복합 허약아, 신계허약아, 폐계허약아, 비계허약아, 신경과민형 심계허약아, 경도 복합 허약아) 중 하나로 즉시 분류하여 제시합니다.
+
+3. **다차원 건강 지표 및 오장(간·심·비·폐·신) 하위 척도 분석**
+   - 도출된 총점 및 하위 척도를 정규분포 백분위수와 비교 분석하여 환아의 임상적 심각도를 객관적으로 평가합니다.
+   - **EMR(전자의무기록) 원클릭 복사 기능**을 제공하여 진료 차트 작성을 효율적으로 돕습니다.
+
+## 🚀 사용 방법 (How to Use)
+
+본 애플리케이션은 설치 과정 없이 웹 브라우저를 통해 즉시 사용할 수 있도록 Streamlit Community Cloud에 배포되어 있습니다 (https://pwsanalysis.streamlit.app/).
+
+1. 좌측 사이드바(Data Input)에 환아의 PWS 30문항 응답(0~4점)을 입력합니다.
+2. `✅ Run Analysis` 버튼을 클릭합니다.
+3. 메인 화면에서 머신러닝 예측 결과, 주요 호소 증상, 레이더 차트 및 백분위수 지표를 확인합니다.
+4. 분석 결과 최하단의 `📋 EMR Copy` 버튼을 눌러 진료 기록에 붙여넣습니다.
+
+## ⚠️ 주의사항 (Disclaimer)
+본 툴은 **임상 의사결정 지원 시스템(CDSS)**의 일환으로 개발된 보조 도구입니다. 인공지능이 도출한 분류 결과는 환아의 상태를 파악하기 위한 강력한 참고 자료이나, 최종적인 의학적 진단 및 처방은 반드시 전문 한의사의 종합적인 임상적 판단을 통해 이루어져야 합니다.
